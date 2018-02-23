@@ -54,8 +54,16 @@ namespace ChallengeMegaCasino
             while (newDeck.cardsList.Count != 0)
             {
                 int index = randomCard.Next(0, cardsList.Count);
-                player1.cardsInHandList.Add(newDeck.cardsList.ElementAt(index));
-                newDeck.cardsList.RemoveAt(index);
+                if (player1.cardsInHandList.Count == player2.cardsInHandList.Count)
+                {
+                    player1.cardsInHandList.Add(newDeck.cardsList.ElementAt(index));
+                    newDeck.cardsList.RemoveAt(index);
+                }
+                else
+                {
+                    player2.cardsInHandList.Add(newDeck.cardsList.ElementAt(index));
+                    newDeck.cardsList.RemoveAt(index);
+                }
             }
         }
     }
