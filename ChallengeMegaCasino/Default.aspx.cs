@@ -16,7 +16,7 @@ namespace ChallengeMegaCasino
 
         protected void playButton_Click(object sender, EventArgs e)
         {
-
+            Game newGame = new Game(player1TextBox.Text, player2TextBox.Text);
         }
     }
 }

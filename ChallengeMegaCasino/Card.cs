@@ -5,7 +5,17 @@ using System.Web;
 
 namespace ChallengeMegaCasino
 {
-    public class Class1
+    public class Card
     {
+        public string name;
+        public int rank;
+        public string suit;
+
+        public Card()
+        {
+            name = "unassigned";
+            rank = 0;
+            suit = "unassigned";
+        }
     }
 }
