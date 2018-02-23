@@ -15,19 +15,11 @@ namespace ChallengeMegaCasino
             Player player2 = new Player();
             player2.name = player2Name;
 
-            Deck deck = new Deck();
+            Deck newDeck = new Deck();
 
-            deck.CreateDeck();
-            /*deck.Deal(deck);
-            
-            if (player1.currentCard.rank == 0)
-            {
-                while (deck)
-                {
+            newDeck.CreateDeck();
 
-                }
-                    deck.Deal(deck);
-            }*/
+            newDeck.Deal(newDeck, player1, player2);
         }
     }
 }

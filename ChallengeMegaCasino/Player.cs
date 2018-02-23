@@ -9,13 +9,13 @@ namespace ChallengeMegaCasino
     {
         public string name;
         public Card currentCard;
-        public List<Card> cardsInHand;
+        public List<Card> cardsInHandList;
 
         public Player()
         {
             name = "unassigned";
             currentCard = new Card();
-            cardsInHand = new List<Card>();
+            cardsInHandList = new List<Card>();
         }
 
         public int FlipCard { get; set; }

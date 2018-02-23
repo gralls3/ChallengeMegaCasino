@@ -7,13 +7,15 @@ namespace ChallengeMegaCasino
 {
     public class Deck
     {
-        public List<Card> cardList;
+        public List<Card> cardsList;
 
+     //CONSTRUCTOR METHOD
         public Deck()
-        {//CONSTRUCTOR METHOD
-            this.cardList = new List<Card>();
+        {
+            this.cardsList = new List<Card>();
         }
 
+    //CREATE DECK
         public List<Card> CreateDeck()
         {
             List<string> suitsList = new List<string>()
@@ -22,37 +24,39 @@ namespace ChallengeMegaCasino
             };
 
             foreach (var suit in suitsList)
-            {
-                
+            {//For each suit, create cards 2-14
                 for (int rank = 2; rank < 15; rank++)
                 {
                     Card suitedCard = new Card();
                     suitedCard.suit = suit;
                     suitedCard.rank = rank;
                     suitedCard.name = rank.ToString() + " of " + suit;
-                    cardList.Add(NameFaceCards(suitedCard));
+                    cardsList.Add(NameFaceCards(suitedCard));
                 }
             }
-            return cardList;
+            return cardsList;
         }
 
         public Card NameFaceCards (Card namedCard)
-        {
-            namedCard.name = (namedCard.rank == 11) ? "Jack of " + namedCard.rank : namedCard.name;
-            namedCard.name = (namedCard.rank == 12) ? "Queen of " + namedCard.rank : namedCard.name;
-            namedCard.name = (namedCard.rank == 13) ? "King of" + namedCard.rank : namedCard.name;
-            namedCard.name = (namedCard.rank == 14) ? "Ace of" + namedCard.rank : namedCard.name;
+        {//If card name=11-14, rename to Jack, etc.
+            namedCard.name = (namedCard.rank == 11) ? "Jack of " + namedCard.suit : namedCard.name;
+            namedCard.name = (namedCard.rank == 12) ? "Queen of " + namedCard.suit : namedCard.name;
+            namedCard.name = (namedCard.rank == 13) ? "King of " + namedCard.suit : namedCard.name;
+            namedCard.name = (namedCard.rank == 14) ? "Ace of " + namedCard.suit : namedCard.name;
             return namedCard;
         }
+
+        //DEAL ALL CARDS
+        public Random randomCard = new Random();
         
-        public Random randomCard;
-        /*
-        public Card Deal(Deck deck)
+        public void Deal(Deck newDeck, Player player1, Player player2)
         {
-            while (deck.cardList.Count == 0)
+            while (newDeck.cardsList.Count != 0)
             {
-                
+                int index = randomCard.Next(0, cardsList.Count);
+                player1.cardsInHandList.Add(newDeck.cardsList.ElementAt(index));
+                newDeck.cardsList.RemoveAt(index);
             }
-        }*/
+        }
     }
 }
