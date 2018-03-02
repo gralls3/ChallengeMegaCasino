@@ -8,14 +8,16 @@ namespace ChallengeMegaCasino
     public class Deck
     {
         public List<Card> cardsList;
+        public Random randomCard;
 
-     //CONSTRUCTOR METHOD
+    //CONSTRUCTOR METHOD
         public Deck()
         {
             this.cardsList = new List<Card>();
+            randomCard = new Random();
         }
 
-    //CREATE DECK
+    //CREATE DECK METHOD
         public List<Card> CreateDeck()
         {
             List<string> suitsList = new List<string>()
@@ -37,6 +39,7 @@ namespace ChallengeMegaCasino
             return cardsList;
         }
 
+    //NAME FACE CARDS METHOD
         public Card NameFaceCards (Card namedCard)
         {//If card name=11-14, rename to Jack, etc.
             namedCard.name = (namedCard.rank == 11) ? "Jack of " + namedCard.suit : namedCard.name;
@@ -45,10 +48,8 @@ namespace ChallengeMegaCasino
             namedCard.name = (namedCard.rank == 14) ? "Ace of " + namedCard.suit : namedCard.name;
             return namedCard;
         }
-
-        //DEAL ALL CARDS
-        public Random randomCard = new Random();
         
+    //DEAL ALL CARDS METHOD
         public void Deal(Deck newDeck, Player player1, Player player2)
         {
             while (newDeck.cardsList.Count != 0)

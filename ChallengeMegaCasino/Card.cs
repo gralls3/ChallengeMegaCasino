@@ -11,6 +11,7 @@ namespace ChallengeMegaCasino
         public int rank;
         public string suit;
 
+    //CONSTRUCTOR METHOD
         public Card()
         {
             name = "unassigned";
